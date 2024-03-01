@@ -1,10 +1,16 @@
+
+import React,{useState} from "react"; 
 import "./App.css";
 import { TiUser } from "react-icons/ti";
 import { CgMenuBoxed } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 function App() {
-
+  const [activeStep, setActiveStep] = useState(0);
+  
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
   return (
     <div dir="rtl">
       <div className="bg-[#428adf] min-w-full h-50 py-5 px-7 border-solid border-8 border-[#3180de] rounded-3xl bluePart">
@@ -93,7 +99,7 @@ function App() {
             <h5>خانه</h5>
           </div>
           <Link to={"/requests"}>
-            <div className="flex flex-col justify-center items-center text-gray-500">
+            <div onClick={handleNext} className="flex flex-col justify-center items-center text-gray-500">
               <img src="/images/tabbar2.png" className="w-[24px]" />
               <h5>درخواست ها</h5>
             </div>
